@@ -3,6 +3,7 @@ dependencies {
     compile( libraries.ehcache )
 
     testCompile project( ':hibernate-testing' )
+    testCompile ( libraries.slf4j_api )
 }
 
 jar {

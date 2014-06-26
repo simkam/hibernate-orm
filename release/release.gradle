@@ -94,7 +94,7 @@ aggregateJavadocs.doLast {
 // release bundles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ext.releaseBuildDir = mkdir( buildDir )
-task prepareReleaseBundles( dependsOn: [parent.project( 'documentation' ).tasks.buildDocs,aggregateJavadocs] )
+task prepareReleaseBundles( dependsOn: [aggregateJavadocs] )
 
 
 ext.releaseCopySpec = copySpec {
@@ -105,7 +105,9 @@ ext.releaseCopySpec = copySpec {
 
         into('lib/required') {
             from parent.project( 'hibernate-core' ).configurations.provided.files { dep -> dep.name == 'jta' }
-            from parent.project( 'hibernate-core' ).configurations.runtime
+            from parent.project( 'hibernate-core' ).configurations.runtime {
+               exclude('antlr*.jar')
+            }
             from parent.project( 'hibernate-core' ).configurations.archives.allArtifacts.files.filter{ file -> !file.name.endsWith('-sources.jar') }
             // for now, 
             from parent.project( 'hibernate-core' ).configurations.provided.files { dep -> dep.name == 'javassist' }
@@ -130,17 +132,6 @@ ext.releaseCopySpec = copySpec {
             )
         }
 
-        into( 'lib/osgi' ) {
-            from(
-                    ( parent.project( 'hibernate-osgi' ).configurations.archives.allArtifacts.files.filter{ file -> !file.name.endsWith('-sources.jar') }
-                            + parent.project( 'hibernate-osgi' ).configurations.runtime )
-                            - parent.project( 'hibernate-core' ).configurations.runtime
-                            - parent.project( 'hibernate-core' ).configurations.archives.allArtifacts.files
-                            - parent.project( 'hibernate-entitymanager' ).configurations.runtime
-                            - parent.project( 'hibernate-entitymanager' ).configurations.archives.allArtifacts.files
-            )
-        }
-
         // todo : this closure is problematic as it does not write into the hibernate-release-$project.version directory
         // due to http://issues.gradle.org/browse/GRADLE-1450
         [ 'hibernate-c3p0', 'hibernate-proxool', 'hibernate-ehcache', 'hibernate-infinispan' ].each { feature ->
@@ -158,7 +149,7 @@ ext.releaseCopySpec = copySpec {
         }
 
         into('documentation') {
-            from new File( parent.project( 'documentation' ).buildDir, 'docbook/publish' )
+            from new File( 'docbook/publish' )
         }
 
         into('documentation/javadocs') {

@@ -6,6 +6,10 @@ dependencies {
     compile project( ':hibernate-core' )
     compile( libraries.infinispan )
     compile( libraries.rhq )
+    compile( libraries.jboss_marshalling )
+    compile( libraries.jboss_marshalling_river )
+    compile( libraries.jgroups )
+    compile( libraries.staxmapper )
 
     testCompile project( ':hibernate-testing' )
     testCompile( libraries.infinispan_test )
@@ -14,7 +18,7 @@ dependencies {
     testCompile( libraries.jnp_server )
     testCompile( libraries.rhq )
 
-    testCompile ('mysql:mysql-connector-java:5.1.17')
+    testCompile ('mysql:mysql-connector-java:5.1.22')
 }
 
 test {
