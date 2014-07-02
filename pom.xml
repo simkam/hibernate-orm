@@ -11,7 +11,7 @@
 
   <groupId>org.hibernate</groupId>
   <artifactId>hibernate-project</artifactId>
-  <version>4.2.14.Final-redhat-SNAPSHOT</version>
+  <version>4.2.14.SP1-redhat-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Hibernate Project</name>
