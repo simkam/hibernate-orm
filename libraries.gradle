@@ -64,11 +64,11 @@ libraries = [
         slf4j_api:      "org.slf4j:slf4j-api:1.7.2.redhat-3",
         slf4j_log4j12:  "org.slf4j:slf4j-log4j12:1.7.2.redhat-3",
         jcl_slf4j:      "org.slf4j:jcl-over-slf4j:1.7.2.redhat-3",
-        jcl_api:        'commons-logging:commons-logging-api:1.1.1',
+        jcl_api:        'commons-logging:commons-logging-api:1.1',
         jcl:            'commons-logging:commons-logging:1.1.1',
 
 
-        junit:           "junit:junit:4.11-redhat-1",
+        junit:           "junit:junit:4.10",
         byteman:         "org.jboss.byteman:byteman:2.1.4.1",
         byteman_install: "org.jboss.byteman:byteman-install:2.1.4.1",
         byteman_bmunit:  "org.jboss.byteman:byteman-bmunit:2.1.4.1",
@@ -76,7 +76,7 @@ libraries = [
         shrinkwrap_api:  'org.jboss.shrinkwrap:shrinkwrap-api:1.1.2.redhat-1',
         shrinkwrap:      'org.jboss.shrinkwrap:shrinkwrap-impl-base:1.1.2.redhat-1',
         validator:       'org.hibernate:hibernate-validator:4.3.1.Final-redhat-1',
-        h2:              "com.h2database:h2:1.3.168.redhat-4",
+        h2:              "com.h2database:h2:1.2.145",
         jboss_jta:       "org.jboss.jbossts:jbossjta:4.16.6.Final-redhat-1",
         xapool:          "com.experlog:xapool:1.5.0",
         mockito:         'org.mockito:mockito-core:1.9.5',
@@ -92,7 +92,7 @@ libraries = [
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~ c3p0
 		c3p0:            "c3p0:c3p0:0.9.1.2",
-		ehcache:         "net.sf.ehcache:ehcache-core:2.5.1-redhat-1",
+		ehcache:         "net.sf.ehcache:ehcache-core:2.4.3",
 		proxool:         "proxool:proxool:0.8.3"
 
 	]
