@@ -24,13 +24,13 @@ public class StrategyRegistrationProviderImpl implements StrategyRegistrationPro
 	@Override
 	@SuppressWarnings("unchecked")
 	public Iterable<StrategyRegistration> getStrategyRegistrations() {
-		return Collections.singletonList(
+		return Collections.singletonList(((StrategyRegistration)
 				new SimpleStrategyRegistrationImpl(
 						RegionFactory.class,
 						CachingRegionFactory.class,
 						"testing",
 						CachingRegionFactory.class.getName()
-				)
+				))
 		);
 	}
 }
