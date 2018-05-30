@@ -18,3 +18,10 @@ cast SimpleStrategyRegistrationImpl to StrategyRegistration which it implements 
 cd hibernate-testing/src/main/java/org/hibernate/testing/boot/
 git diff HEAD upstream/master -- ./ > hibernate-testing.patch
 git apply hibernate-testing.patch
+
+other changes - code, disable animalsniffer, disable checkstyle
+
+create custom version of hibernate-testing
+
+./gradlew :hibernate-testing:build
+./gradlew :hibernate-testing:publishToMavenLocal
