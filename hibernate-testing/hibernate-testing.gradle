@@ -19,6 +19,7 @@ dependencies {
     }
 }
 
+version = '5.1.x-msimka'
 sourceCompatibility = JavaVersion.VERSION_1_8
 
 // resources inherently exclude sources
