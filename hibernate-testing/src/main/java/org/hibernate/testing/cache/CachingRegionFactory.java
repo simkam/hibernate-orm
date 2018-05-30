@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.hibernate.boot.spi.SessionFactoryOptions;
+import org.hibernate.cache.CacheException;
 import org.hibernate.cache.cfg.spi.DomainDataRegionBuildingContext;
 import org.hibernate.cache.cfg.spi.DomainDataRegionConfig;
 import org.hibernate.cache.internal.DefaultCacheKeysFactory;
@@ -79,5 +80,10 @@ public class CachingRegionFactory extends RegionFactoryTemplate {
 
 	@Override
 	protected void releaseFromUse() {
+	}
+
+	public final void start(SessionFactoryOptions settings, Properties configValues) throws CacheException {
+		Map values = (Map)configValues;
+		start(settings, values);
 	}
 }
