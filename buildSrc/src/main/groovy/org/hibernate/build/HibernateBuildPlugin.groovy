@@ -29,7 +29,7 @@ class HibernateBuildPlugin implements Plugin<Project> {
 			throw new GradleException( "Gradle must be run with Java 8" )
 		}
 
-		project.apply( plugin: 'org.hibernate.build.gradle.animalSniffer' )
+//		project.apply( plugin: 'org.hibernate.build.gradle.animalSniffer' )
 
 		final Jvm java6Home;
 		if ( project.rootProject.extensions.extraProperties.has( 'java6Home' ) ) {
@@ -93,21 +93,21 @@ class HibernateBuildPlugin implements Plugin<Project> {
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// apply AnimalSniffer
-
-		if ( javaTargetExtension.version.java8Compatible ) {
-			AnimalSnifferExtension animalSnifferExtension = project.extensions.findByType( AnimalSnifferExtension )
-			if ( animalSnifferExtension == null ) {
-				throw new GradleException( "Unable to locate AnimalSniffer extension" )
-			}
-			animalSnifferExtension.skip = true
-		}
-		else {
-			// todo : we could really disable this if we set executable/bootClasspath below
-			def sigConfig = project.configurations.animalSnifferSignature
-			sigConfig.incoming.beforeResolve {
-				sigConfig.dependencies.add( project.dependencies.create( 'org.codehaus.mojo.signature:java16:1.0@signature' ) )
-			}
-		}
+//
+//		if ( javaTargetExtension.version.java8Compatible ) {
+//			AnimalSnifferExtension animalSnifferExtension = project.extensions.findByType( AnimalSnifferExtension )
+//			if ( animalSnifferExtension == null ) {
+//				throw new GradleException( "Unable to locate AnimalSniffer extension" )
+//			}
+//			animalSnifferExtension.skip = true
+//		}
+//		else {
+//			// todo : we could really disable this if we set executable/bootClasspath below
+//			def sigConfig = project.configurations.animalSnifferSignature
+//			sigConfig.incoming.beforeResolve {
+//				sigConfig.dependencies.add( project.dependencies.create( 'org.codehaus.mojo.signature:java16:1.0@signature' ) )
+//			}
+//		}
 
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

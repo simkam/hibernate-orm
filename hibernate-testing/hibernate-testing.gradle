@@ -19,6 +19,8 @@ dependencies {
     }
 }
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+
 // resources inherently exclude sources
 sourceSets.test.resources {
     setSrcDirs( ['src/test/java'] )

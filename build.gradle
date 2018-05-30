@@ -104,7 +104,7 @@ subprojects { subProject ->
 	apply plugin: 'osgi'
 
 	apply plugin: 'findbugs'
-	apply plugin: 'checkstyle'
+//	apply plugin: 'checkstyle'
 	apply plugin: 'build-dashboard'
 	apply plugin: 'project-report'
 
@@ -158,7 +158,7 @@ subprojects { subProject ->
 		}
 
 		// 6.6 gave me some NPE problems from within checkstyle...
-		checkstyle 'com.puppycrawl.tools:checkstyle:6.5'
+//		checkstyle 'com.puppycrawl.tools:checkstyle:6.5'
 	}
 
 	// mac-specific stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -282,13 +282,13 @@ subprojects { subProject ->
 
 
 	// Report configs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	checkstyle {
-		sourceSets = [ subProject.sourceSets.main ]
-		configFile = rootProject.file( 'shared/config/checkstyle/checkstyle.xml' )
-		showViolations = false
-	}
-	// exclude generated java sources - by explicitly setting the base source dir
-	checkstyleMain.source = 'src/main/java'
+//	checkstyle {
+//		sourceSets = [ subProject.sourceSets.main ]
+//		configFile = rootProject.file( 'shared/config/checkstyle/checkstyle.xml' )
+//		showViolations = false
+//	}
+//	// exclude generated java sources - by explicitly setting the base source dir
+//	checkstyleMain.source = 'src/main/java'
 
 	findbugs {
 		sourceSets = [ subProject.sourceSets.main, subProject.sourceSets.test ]
@@ -316,8 +316,8 @@ subprojects { subProject ->
 	}
 
 		// because cfg package is a mess mainly from annotation stuff
-	checkstyleMain.exclude '**/org/hibernate/cfg/**'
-	checkstyleMain.exclude '**/org/hibernate/cfg/*'
+//	checkstyleMain.exclude '**/org/hibernate/cfg/**'
+//	checkstyleMain.exclude '**/org/hibernate/cfg/*'
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

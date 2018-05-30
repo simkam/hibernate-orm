@@ -71,5 +71,5 @@ task jaxb {
 }
 tasks.compileJava.dependsOn jaxb
 
-checkstyleMain.exclude '**/jaxb/**'
+//checkstyleMain.exclude '**/jaxb/**'
 

@@ -77,4 +77,9 @@ public class ServiceRegistryTestingImpl
 			Map<?, ?> configurationValues) {
 		super( autoCloseRegistry, bootstrapServiceRegistry, serviceInitiators, providedServices, configurationValues );
 	}
+
+	@Override
+	public void close() {
+		destroy();
+	}
 }
