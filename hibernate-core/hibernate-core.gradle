@@ -58,6 +58,20 @@ dependencies {
     testRuntime( libraries.javassist )
     testRuntime( 'org.hibernate:hibernate-core:5.3.1.Final')
 }
+tasks.test {
+sourceSets {
+    test {
+        runtimeClasspath = sourceSets.test.runtimeClasspath.filter { !it.path.endsWith('hibernate-core/target/classes/main') }
+        runtimeClasspath = sourceSets.test.runtimeClasspath.filter { !it.path.endsWith('hibernate-core/target/resources/main') }
+    }
+}
+}
+
+//task printDep(dependsOn: testClasses) {
+//    sourceSets.test.runtimeClasspath.each { println it.path }
+//    sourceSets.test.runtimeClasspath = sourceSets.test.runtimeClasspath.filter { !it.path.endsWith('hibernate-core/target/classes/main') }
+//    sourceSets.test.runtimeClasspath.each { println it.path }
+//}
 
 mavenPom {
     name = 'Core Hibernate O/RM functionality'
