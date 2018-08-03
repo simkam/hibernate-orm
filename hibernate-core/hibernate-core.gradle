@@ -56,7 +56,7 @@ dependencies {
 
     testRuntime( 'jaxen:jaxen:1.1' )
     testRuntime( libraries.javassist )
-    testRuntime( 'org.hibernate:hibernate-core:5.3.4-SNAPSHOT')
+    testRuntime( 'org.hibernate:hibernate-core:5.3.5-SNAPSHOT')
 }
 tasks.test {
 sourceSets {
